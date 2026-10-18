@@ -1,0 +1,26 @@
+{
+  "id": "/em-yaytso/",
+  "name": "ЕмЯйцо",
+  "short_name": "ЕмЯйцо",
+  "lang": "ru",
+  "description": "Дневник назначенной врачом яичной лестницы",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffaf1",
+  "theme_color": "#fff9eb",
+  "icons": [
+    {
+      "src": "./assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-original.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
