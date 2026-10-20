@@ -23,3 +23,8 @@ body,#pf-demo,#em-demo,.layout .device{font-family:system-ui,sans-serif;font-siz
 }
 
 .layout .em-author-photo{width:82px;height:106px;object-fit:contain;flex-shrink:0}.layout .em-author-head>div{flex:1;min-width:0}
+
+/* App artwork uses the same slots as EmMoloko, without changing the source files. */
+#pf-demo .pf-brand-icon,#em-demo .em-logo,.layout .app-logo{width:56px;height:56px;flex-shrink:0;object-fit:contain}
+#em-demo .em-about-brand img,#em-demo .about-icon,#em-demo .welcome-logo,.layout .brand-preview img{width:72px;height:72px;object-fit:contain;flex-shrink:0}
+@media(max-width:380px){#pf-demo .pf-brand-icon,#em-demo .em-logo,.layout .app-logo{width:49px;height:49px}}
