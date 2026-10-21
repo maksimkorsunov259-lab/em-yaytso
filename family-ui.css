@@ -70,3 +70,9 @@ body,#pf-demo,#em-demo,.layout .device{font-family:system-ui,sans-serif;font-siz
 :is(#pf-demo,#em-demo,.layout) .family-author a{font:600 14px/1.5 system-ui,sans-serif;color:inherit;text-decoration:underline;text-underline-offset:3px}
 :is(#pf-demo,#em-demo,.layout) .family-support-link{display:inline-block;padding:10px 0;min-height:44px;box-sizing:border-box}
 @media(max-width:380px){:is(#pf-demo,#em-demo,.layout) .family-author-qr{grid-template-columns:112px minmax(0,1fr);gap:12px}:is(#pf-demo,#em-demo,.layout) .family-author-head{gap:12px}}
+
+/* Shared compact feedback block, including author cards inside overlays. */
+:is(#pf-demo,#em-demo,.layout) .family-feedback{margin-top:16px;padding-top:16px;border-top:1px solid var(--em-line,var(--line,var(--pf-line,#ddd)));overflow-wrap:anywhere}
+:is(#pf-demo,#em-demo,.layout) .family-feedback h3{font:700 15px/1.4 system-ui,sans-serif;letter-spacing:normal;margin:0 0 8px;color:inherit}
+:is(#pf-demo,#em-demo,.layout) .family-feedback p{font:400 14px/1.5 system-ui,sans-serif;margin:8px 0;color:inherit}
+:is(#pf-demo,#em-demo,.layout) .family-feedback a{display:inline-block;font:600 14px/1.5 system-ui,sans-serif;color:inherit;text-decoration:underline;text-underline-offset:3px;padding:10px 0;min-height:44px;box-sizing:border-box}
