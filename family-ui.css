@@ -44,3 +44,29 @@ body,#pf-demo,#em-demo,.layout .device{font-family:system-ui,sans-serif;font-siz
 .family-about .family-about-content>.pf-author,.family-about .family-about-content>.em-author{margin-top:24px}
 @media(max-width:380px){#pf-demo #pf-about.family-about,#em-demo dialog.family-about,.layout dialog.family-about{padding:16px}.family-about .family-about-bar{top:-16px}}
 @media print{dialog.family-about{display:none!important}}
+
+/* About content uses one layout and type scale; app colours and original artwork stay local. */
+.family-about .family-about-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-bottom:16px}
+:is(#pf-demo,#em-demo,.layout) .family-about .family-about-bar h2{margin:0}
+:is(#pf-demo,#em-demo,.layout) .family-about .family-about-bar button{font:600 16px/1.5 system-ui,sans-serif;border:1px solid var(--em-line,var(--line,var(--pf-line,#ddd)));border-radius:12px;background:#fff;color:inherit;min-height:44px;padding:9px 13px}
+:is(#pf-demo,#em-demo,.layout) .family-about-layout{display:grid;gap:16px;font:400 16px/1.5 system-ui,sans-serif}
+:is(#pf-demo,#em-demo,.layout) .family-about-layout p{font:400 16px/1.5 system-ui,sans-serif;letter-spacing:normal;margin:10px 0;color:inherit}
+:is(#pf-demo,#em-demo,.layout) .family-about-layout h3{font:700 17px/1.35 system-ui,sans-serif;letter-spacing:normal;margin:0 0 10px;color:inherit}
+:is(#pf-demo,#em-demo,.layout) .family-about-brand{display:grid;grid-template-columns:72px minmax(0,1fr);align-items:center;gap:16px;padding:4px 0 8px}
+:is(#pf-demo,#em-demo,.layout) .family-about-brand img{width:72px;height:72px;object-fit:contain;border-radius:28.5714%;display:block}
+:is(#pf-demo,#em-demo,.layout) .family-about-name{display:block;font:700 20px/1.25 system-ui,sans-serif;letter-spacing:normal}
+:is(#pf-demo,#em-demo,.layout) .family-about-layout .family-about-tagline{font-size:14px;line-height:1.5;font-weight:400;margin:5px 0 0}
+:is(#pf-demo,#em-demo,.layout) .family-about-section{padding:16px;border:1px solid var(--em-line,var(--line,var(--pf-line,#ddd)));border-radius:16px;background:#fff;margin:0;min-width:0}
+:is(#pf-demo,#em-demo,.layout) .family-about-section>p:last-child{margin-bottom:0}
+:is(#pf-demo,#em-demo,.layout) .family-about-layout .family-about-note,:is(#pf-demo,#em-demo,.layout) .family-about-layout .family-author-note,:is(#pf-demo,#em-demo,.layout) .family-about-layout .family-author-small{font-size:14px;line-height:1.5;font-weight:400;color:inherit}
+:is(#pf-demo,#em-demo,.layout) .family-about-actions{display:grid;gap:10px;margin-top:16px}
+:is(#pf-demo,#em-demo,.layout) .family-about-actions button{font:600 16px/1.5 system-ui,sans-serif;letter-spacing:normal;min-height:44px;padding:9px 13px;border:1px solid var(--em-line,var(--line,var(--pf-line,#ddd)));border-radius:12px;background:#fff;color:inherit;width:100%;margin:0;white-space:normal}
+:is(#pf-demo,#em-demo,.layout) .family-author-head{display:grid;grid-template-columns:82px minmax(0,1fr);gap:15px;align-items:center}
+:is(#pf-demo,#em-demo,.layout) .family-author-photo{display:block;width:82px;height:106px;object-fit:contain;border-radius:14px}
+:is(#pf-demo,#em-demo,.layout) .family-about-layout .family-author-eyebrow{font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.7px;text-transform:uppercase;margin:0 0 7px}
+:is(#pf-demo,#em-demo,.layout) .family-author-qr{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--em-line,var(--line,var(--pf-line,#ddd)))}
+:is(#pf-demo,#em-demo,.layout) .family-author-qr img{display:block;width:112px;height:112px}
+:is(#pf-demo,#em-demo,.layout) .family-support{margin-top:16px;padding-top:16px;border-top:1px solid var(--em-line,var(--line,var(--pf-line,#ddd)))}
+:is(#pf-demo,#em-demo,.layout) .family-author a{font:600 14px/1.5 system-ui,sans-serif;color:inherit;text-decoration:underline;text-underline-offset:3px}
+:is(#pf-demo,#em-demo,.layout) .family-support-link{display:inline-block;padding:10px 0;min-height:44px;box-sizing:border-box}
+@media(max-width:380px){:is(#pf-demo,#em-demo,.layout) .family-author-qr{grid-template-columns:112px minmax(0,1fr);gap:12px}:is(#pf-demo,#em-demo,.layout) .family-author-head{gap:12px}}
