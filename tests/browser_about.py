@@ -19,7 +19,7 @@ with sync_playwright() as pw,tempfile.TemporaryDirectory() as tmp:
   p.wait_for_function('!loading');p.evaluate("render('profile')");field=p.locator('[name=patientName]');root='#em-demo';trigger=p.locator('[data-go=about]').first
  else:
   p.wait_for_function('!loading&&!pendingWrites');p.evaluate("render('profile')");field=p.locator('[name=name]');root='.device';trigger=p.locator('[data-go=about]').first
- field.fill('Несохранённое имя');dialog=p.locator('dialog.family-about');before=field.evaluate('(e)=>{e.dataset.aboutSentinel="keep";return e.value}')
+ field.fill('Несохранённое имя');dialog=p.locator('dialog.family-about:not(#family-help)');before=field.evaluate('(e)=>{e.dataset.aboutSentinel="keep";return e.value}')
  for width in [320,390,1440]:
   p.set_viewport_size({'width':width,'height':900});trigger.scroll_into_view_if_needed();position=p.evaluate('window.scrollY');trigger.click();expect(dialog).to_be_visible();assert dialog.evaluate('(d)=>d.matches(":modal")');assert not prompts,prompts
   assert field.get_attribute('data-about-sentinel')=='keep';assert field.input_value()==before

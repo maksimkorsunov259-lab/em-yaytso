@@ -1,5 +1,6 @@
 /* Shared, non-destructive About overlay. The diary remains mounted underneath. */
 'use strict';
+const familyScrollLocks=new Set();let familyScrollOverflow='';
 window.FamilyAbout={layout({name,tagline,icon,description,details='',dataDetails='',actions='',author,rightsExtra}){
  // All HTML arguments are application-owned copy, never diary input.
  const body=document.createElement('div');body.className='family-about-layout';
@@ -10,22 +11,22 @@ window.FamilyAbout={layout({name,tagline,icon,description,details='',dataDetails
  if(author){const copy=author.cloneNode(true);for(const node of [copy,...copy.querySelectorAll('[class]')])for(const cls of [...node.classList])if(/^(em|pf)-(author|support)/.test(cls)){node.classList.remove(cls);node.classList.add(cls.replace(/^(em|pf)-/,'family-'));}for(const [oldClass,newClass] of [['em-note','family-author-note'],['em-small','family-author-small'],['em-eyebrow','family-author-eyebrow']])for(const node of copy.querySelectorAll('.'+oldClass)){node.classList.remove(oldClass);node.classList.add(newClass);}copy.className='family-about-section family-author';copy.dataset.aboutSection='author';body.append(copy);}
  return body;
 },
-create({root,dialog=null,trigger,build,activate,navigate}){
+create({root,dialog=null,trigger,build,activate,navigate,id='family-about',title='О приложении'}){
  const existing=Boolean(dialog);dialog=dialog||document.createElement('dialog');
- dialog.classList.add('family-about');if(!dialog.id)dialog.id='family-about';
+ dialog.classList.add('family-about');if(!dialog.id)dialog.id=id;
  const oldButton=existing?dialog.querySelector('button'):null,oldHeading=existing?dialog.querySelector('h2'):null;
  const content=document.createElement('div');content.className='family-about-content';
  if(existing){oldButton?.remove();oldHeading?.remove();content.append(...dialog.childNodes);}
  const bar=document.createElement('div');bar.className='family-about-bar';
  const closeButton=oldButton||document.createElement('button');closeButton.type='button';closeButton.textContent='← Вернуться';closeButton.dataset.familyAboutClose='';closeButton.autofocus=true;
- const heading=oldHeading||document.createElement('h2');heading.id=heading.id||'family-about-title';heading.textContent='О приложении';
+ const heading=oldHeading||document.createElement('h2');heading.id=heading.id||(id+'-title');heading.textContent=title;
  bar.append(heading,closeButton);dialog.replaceChildren(bar,content);dialog.setAttribute('aria-labelledby',heading.id);
  if(!existing)root.append(dialog);
  let origin=null,scroll=null,restore=true,overflow='',generation=0;
  const api={get isOpen(){return dialog.open;},open(opener=document.activeElement){
   if(dialog.open)return;
   if(build){const node=build();content.replaceChildren(node);activate?.(content);}
-  generation++;origin=opener;scroll={x:window.scrollX,y:window.scrollY};restore=true;overflow=document.documentElement.style.overflow;
+  generation++;origin=opener;scroll={x:window.scrollX,y:window.scrollY};restore=true;overflow=document.documentElement.style.overflow;if(!familyScrollLocks.size)familyScrollOverflow=overflow;familyScrollLocks.add(dialog);
   document.documentElement.style.overflow='hidden';dialog.showModal();dialog.scrollTop=0;closeButton.focus({preventScroll:true});
  },close(returnToOrigin=true){if(!dialog.open)return;restore=returnToOrigin;dialog.close();},dialog};
  dialog.addEventListener('keydown',event=>{
@@ -37,7 +38,7 @@ create({root,dialog=null,trigger,build,activate,navigate}){
  });
  dialog.addEventListener('close',()=>{
   const token=generation,position=scroll,target=origin,shouldRestore=restore;
-  document.documentElement.style.overflow=overflow;
+  familyScrollLocks.delete(dialog);document.documentElement.style.overflow=familyScrollLocks.size?'hidden':familyScrollOverflow;
   if(shouldRestore)requestAnimationFrame(()=>{if(token!==generation||dialog.open)return;target?.isConnected&&target.focus?.({preventScroll:true});if(position)window.scrollTo({left:position.x,top:position.y,behavior:'instant'});});
  });
  document.addEventListener('click',event=>{
