@@ -28,3 +28,7 @@ body,#pf-demo,#em-demo,.layout .device{font-family:system-ui,sans-serif;font-siz
 #pf-demo .pf-brand-icon,#em-demo .em-logo,.layout .app-logo{width:56px;height:56px;flex-shrink:0;object-fit:contain}
 #em-demo .em-about-brand img,#em-demo .about-icon,#em-demo .welcome-logo,.layout .brand-preview img{width:72px;height:72px;object-fit:contain;flex-shrink:0}
 @media(max-width:380px){#pf-demo .pf-brand-icon,#em-demo .em-logo,.layout .app-logo{width:49px;height:49px}}
+
+/* Rounded-square silhouettes, with no exterior white canvas on the edited icons. */
+#pf-demo .pf-brand-icon,#em-demo .em-logo,#em-demo .em-about-brand img,.layout .app-logo,.layout .brand-preview img{border-radius:28.5714%;overflow:hidden}
+#em-demo [data-original-icon]{border-radius:28.5714%!important;overflow:hidden!important}
