@@ -11,7 +11,7 @@ window.FamilyAbout={layout({name,tagline,icon,description,details='',dataDetails
  if(author){const copy=author.cloneNode(true);for(const node of [copy,...copy.querySelectorAll('[class]')])for(const cls of [...node.classList])if(/^(em|pf)-(author|support)/.test(cls)){node.classList.remove(cls);node.classList.add(cls.replace(/^(em|pf)-/,'family-'));}for(const [oldClass,newClass] of [['em-note','family-author-note'],['em-small','family-author-small'],['em-eyebrow','family-author-eyebrow']])for(const node of copy.querySelectorAll('.'+oldClass)){node.classList.remove(oldClass);node.classList.add(newClass);}copy.className='family-about-section family-author';copy.dataset.aboutSection='author';body.append(copy);}
  return body;
 },
-create({root,dialog=null,trigger,build,activate,navigate,id='family-about',title='О приложении'}){
+create({root,dialog=null,trigger,build,activate,navigate,id='family-about',title='О приложении',returnLabel}){
  const existing=Boolean(dialog);dialog=dialog||document.createElement('dialog');
  dialog.classList.add('family-about');if(!dialog.id)dialog.id=id;
  const oldButton=existing?dialog.querySelector('button'):null,oldHeading=existing?dialog.querySelector('h2'):null;
@@ -25,6 +25,7 @@ create({root,dialog=null,trigger,build,activate,navigate,id='family-about',title
  let origin=null,scroll=null,restore=true,overflow='',generation=0;
  const api={get isOpen(){return dialog.open;},open(opener=document.activeElement){
   if(dialog.open)return;
+  closeButton.textContent=returnLabel?returnLabel(dialog):'← Вернуться';
   if(build){const node=build();content.replaceChildren(node);activate?.(content);}
   generation++;origin=opener;scroll={x:window.scrollX,y:window.scrollY};restore=true;overflow=document.documentElement.style.overflow;if(!familyScrollLocks.size)familyScrollOverflow=overflow;familyScrollLocks.add(dialog);
   document.documentElement.style.overflow='hidden';dialog.showModal();dialog.scrollTop=0;closeButton.focus({preventScroll:true});
