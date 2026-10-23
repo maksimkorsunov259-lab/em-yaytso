@@ -88,3 +88,7 @@ body,#pf-demo,#em-demo,.layout .device{font-family:system-ui,sans-serif;font-siz
  #em-demo .family-topbar .update-banner{padding:12px 14px}
 }
 @media print{.family-topbar{display:none!important}}
+
+#em-demo .family-patient-choice,.layout .family-patient-choice{flex:1;min-width:0;margin:0;font-size:13px;color:#655647;display:block}
+#em-demo .family-patient-choice select,.layout .family-patient-choice select{display:block;width:100%;min-width:0;max-width:100%;margin:5px 0 0;min-height:44px;padding:10px 12px;font:inherit;font-size:16px;line-height:1.5;color:#45372c;background-color:#fff;border:1px solid #e4d8c5;border-radius:12px;text-overflow:ellipsis}
+#em-demo .family-topbar .patient-bar,.layout .family-topbar .patient{align-items:flex-end}

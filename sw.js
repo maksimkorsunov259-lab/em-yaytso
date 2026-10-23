@@ -1,5 +1,5 @@
 const PREFIX='em-yaytso:'+new URL('./',self.location).pathname+':';
-const CACHE=PREFIX+'01ed1ffbfeb5';
+const CACHE=PREFIX+'bf633ecd1fa5';
 const FILES=["./index.html", "./styles.css", "./app.css", "./family-ui.css", "./family-about.js", "./recipes.js", "./model.js", "./storage.js", "./app.js", "./runtime.js", "./manifest.webmanifest", "./assets/icon-original.png", "./assets/icon-rounded-180.png", "./assets/icon-rounded-192.png", "./assets/icon-rounded-512.png", "./assets/icon-rounded-master.png", "./assets/icon.svg", "./assets/image-177842a5a4de.png", "./assets/image-9bfbd99af1d3.png"];
 self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.addAll(FILES.map(file=>new Request(new URL(file,self.location),{cache:'reload'})));})()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith(PREFIX)&&k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim();})()));
