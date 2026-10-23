@@ -76,3 +76,15 @@ body,#pf-demo,#em-demo,.layout .device{font-family:system-ui,sans-serif;font-siz
 :is(#pf-demo,#em-demo,.layout) .family-feedback h3{font:700 15px/1.4 system-ui,sans-serif;letter-spacing:normal;margin:0 0 8px;color:inherit}
 :is(#pf-demo,#em-demo,.layout) .family-feedback p{font:400 14px/1.5 system-ui,sans-serif;margin:8px 0;color:inherit}
 :is(#pf-demo,#em-demo,.layout) .family-feedback a{display:inline-block;font:600 14px/1.5 system-ui,sans-serif;color:inherit;text-decoration:underline;text-underline-offset:3px;padding:10px 0;min-height:44px;box-sizing:border-box}
+
+/* Patient, update notice and navigation share one sticky stack. */
+.family-topbar{position:sticky;top:0;z-index:12;background:#fff;padding-top:env(safe-area-inset-top,0px)}
+#pf-demo .family-topbar .pf-tabs,#em-demo .family-topbar .em-nav,.layout .family-topbar .nav{position:static!important}
+#pf-demo .family-topbar .pf-update-banner{position:static}
+#pf-demo .family-topbar .pf-patient-switch,#em-demo .family-topbar .patient-bar,.layout .family-topbar .patient{margin:0;padding:10px 24px 12px;background:#fff;border-top:1px solid var(--pf-line,var(--em-line,var(--line,#e4d8c5)))}
+#em-demo .family-topbar .update-banner{margin:0;border:0;border-radius:0;border-bottom:1px solid var(--em-line);padding:12px 24px;background:var(--em-soft)}
+@media(max-width:600px){
+ #pf-demo .family-topbar .pf-patient-switch,#em-demo .family-topbar .patient-bar,.layout .family-topbar .patient{padding:8px 14px 10px}
+ #em-demo .family-topbar .update-banner{padding:12px 14px}
+}
+@media print{.family-topbar{display:none!important}}
