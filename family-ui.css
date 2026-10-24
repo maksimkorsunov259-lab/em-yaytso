@@ -92,3 +92,18 @@ body,#pf-demo,#em-demo,.layout .device{font-family:system-ui,sans-serif;font-siz
 #em-demo .family-patient-choice,.layout .family-patient-choice{flex:1;min-width:0;margin:0;font-size:13px;color:#655647;display:block}
 #em-demo .family-patient-choice select,.layout .family-patient-choice select{display:block;width:100%;min-width:0;max-width:100%;margin:5px 0 0;min-height:44px;padding:10px 12px;font:inherit;font-size:16px;line-height:1.5;color:#45372c;background-color:#fff;border:1px solid #e4d8c5;border-radius:12px;text-overflow:ellipsis}
 #em-demo .family-topbar .patient-bar,.layout .family-topbar .patient{align-items:flex-end}
+
+/* The same five data/install blocks across the family. */
+.family-data{display:grid;gap:16px;margin-top:20px;font-size:16px;line-height:1.5}
+#pf-demo .family-data-card,#em-demo .family-data-card,.layout .family-data-card{margin:0;padding:20px;border:1px solid var(--pf-line,var(--em-line,var(--line,#ded8cd)));border-radius:18px;background:#fff}
+.family-data-card h3{margin:0 0 12px}.family-data-card p{margin:10px 0}
+#pf-demo .family-data .family-data-button,#em-demo .family-data .family-data-button,.layout .family-data .family-data-button{display:block;width:100%;margin:10px 0 0;min-height:44px;font:inherit;font-size:16px;font-weight:400;line-height:1.5;padding:10px 12px;border-radius:12px}
+#pf-demo .family-data .family-data-primary,#em-demo .family-data .family-data-primary,.layout .family-data .family-data-primary{background:var(--pf-accent,var(--em-accent,var(--green-dark,#416b27)));color:#fff;border-color:transparent;font-weight:600}
+#pf-demo .family-data .family-data-note,#em-demo .family-data .family-data-note,.layout .family-data .family-data-note{font-size:13px;line-height:1.5;color:#655b50}
+.family-data-preview:empty{display:none}.family-data-preview:not(:empty){margin-top:14px;padding:12px;border:1px solid #ded8cd;border-radius:12px}
+.family-data .family-data-file{display:block;margin-top:16px}.family-data-file input{display:block;max-width:100%;margin-top:8px}
+.family-data summary{font-size:17px;font-weight:600;cursor:pointer}
+@media(max-width:600px){#pf-demo .family-data-card,#em-demo .family-data-card,.layout .family-data-card{padding:16px}}
+@media print{.family-data{display:none!important}}
+
+.family-data,.family-data-card{min-width:0;overflow-wrap:anywhere}.family-data-file input{width:100%;box-sizing:border-box}
