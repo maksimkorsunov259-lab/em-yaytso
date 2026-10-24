@@ -93,7 +93,7 @@ body,#pf-demo,#em-demo,.layout .device{font-family:system-ui,sans-serif;font-siz
 #em-demo .family-patient-choice select,.layout .family-patient-choice select{display:block;width:100%;min-width:0;max-width:100%;margin:5px 0 0;min-height:44px;padding:10px 12px;font:inherit;font-size:16px;line-height:1.5;color:#45372c;background-color:#fff;border:1px solid #e4d8c5;border-radius:12px;text-overflow:ellipsis}
 #em-demo .family-topbar .patient-bar,.layout .family-topbar .patient{align-items:flex-end}
 
-/* The same five data/install blocks across the family. */
+/* The same four data/install blocks across the family. */
 .family-data{display:grid;gap:16px;margin-top:20px;font-size:16px;line-height:1.5}
 #pf-demo .family-data-card,#em-demo .family-data-card,.layout .family-data-card{margin:0;padding:20px;border:1px solid var(--pf-line,var(--em-line,var(--line,#ded8cd)));border-radius:18px;background:#fff}
 .family-data-card h3{margin:0 0 12px}.family-data-card p{margin:10px 0}
@@ -107,3 +107,6 @@ body,#pf-demo,#em-demo,.layout .device{font-family:system-ui,sans-serif;font-siz
 @media print{.family-data{display:none!important}}
 
 .family-data,.family-data-card{min-width:0;overflow-wrap:anywhere}.family-data-file input{width:100%;box-sizing:border-box}
+
+.family-data-patient{margin-top:16px;padding-top:16px;border-top:1px solid #ded8cd}
+.family-data-patient label{display:block;font:inherit}.family-data-patient select{display:block;width:100%;min-width:0;box-sizing:border-box;min-height:44px;margin-top:8px;padding:10px 12px;font:inherit;color:inherit;background:#fff;border:1px solid #c9c0b3;border-radius:12px}
