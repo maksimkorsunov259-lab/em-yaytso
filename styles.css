@@ -22,10 +22,11 @@
 #em-demo .em-phone { max-width:680px; min-height:100dvh; border-radius:0; border:0; overflow:clip; }
 #em-demo .em-header { padding-top:max(22px,env(safe-area-inset-top)); }
 #em-demo .em-topbar { position:sticky; top:0; z-index:12; }
-#em-demo .em-update-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 24px;background:var(--em-soft);border-bottom:1px solid var(--em-line);color:var(--em-ink)}
+#em-demo .em-update-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 24px;background:var(--butter);border-bottom:1px solid #e5c980;color:var(--em-ink)}
+#em-demo .em-update-banner>div{min-width:0}
 #em-demo .em-update-banner strong{font-size:15px}
 #em-demo .em-update-banner p{font-size:13px;line-height:1.4;margin:5px 0 0}
-#em-demo .em-update-banner button{flex-shrink:0;min-height:44px;padding:9px 12px;font-size:16px;line-height:1.5;font-weight:400;border-radius:12px}
+#em-demo .em-update-banner button{flex-shrink:0;min-height:44px;padding:9px 12px;font-size:16px;line-height:1.5;font-weight:600;border-radius:12px}
 @media(max-width:480px){#em-demo .em-update-banner{align-items:stretch;flex-direction:column;padding:12px 14px}#em-demo .em-update-banner button{width:100%}}
 #em-demo .em-author-photo{object-position:center 25%}
 #em-demo .em-brand { padding-right:0; }
