@@ -15,3 +15,17 @@ window.FamilyData={
 };
 window.addEventListener('appinstalled',()=>FamilyData.refresh());
 matchMedia('(display-mode: standalone)').addEventListener('change',()=>FamilyData.refresh());
+
+/* Enlarging a QR never navigates away from an unfinished diary entry. */
+document.addEventListener('click',event=>{
+ const trigger=event.target.closest('[data-family-qr]');if(!trigger)return;
+ let dialog=document.querySelector('.family-qr-dialog');
+ if(!dialog){
+  dialog=document.createElement('dialog');dialog.className='family-qr-dialog';dialog.setAttribute('aria-labelledby','family-qr-title');
+  dialog.innerHTML='<div class="family-qr-bar"><h2 id="family-qr-title"></h2><button type="button" autofocus>← Вернуться</button></div><img width="300" height="300"><p>Наведите камеру другого телефона на QR-код, чтобы открыть приложение.</p><p>Откроется приложение без ваших записей. Для переноса дневника используйте резервную копию.</p><a target="_blank" rel="noopener noreferrer">Открыть страницу приложения</a>';
+  document.body.append(dialog);dialog.querySelector('button').addEventListener('click',()=>dialog.close());
+ }
+ dialog.querySelector('h2').textContent=trigger.dataset.appName;
+ const img=dialog.querySelector('img');img.src=trigger.querySelector('img').src;img.alt='QR-код: '+trigger.dataset.appName;
+ dialog.querySelector('a').href=trigger.dataset.appUrl;dialog.showModal();
+});
